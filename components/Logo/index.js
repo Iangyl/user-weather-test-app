@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import Image from 'next/image';
-import weatherIcon from '@/app/assets/icons/weather-logo.svg';
+import weatherIcon from '@/assets/icons/weather-logo.svg';
 
 import styles from './index.module.sass';
 

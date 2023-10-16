@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/app/pages/*": ["./app/pages/*"],
-      "@/app/components/*": ["./app/components/*"],
-      "@/app/hooks/*": ["./app/hooks/*"],
-      "@/app/redux/*": ["./app/redux/*"],
-      "@/app/assets/*": ["./app/assets/*"],
-      "@/app/styles/*": ["./app/styles/*"],
-      "@/app/utils/*": ["./app/utils/*"],
+      "@/pages/*": ["./pages/*"],
+      "@/components/*": ["./components/*"],
+      "@/hooks/*": ["./hooks/*"],
+      "@/redux/*": ["./redux/*"],
+      "@/assets/*": ["./assets/*"],
+      "@/styles/*": ["./styles/*"],
+      "@/utils/*": ["./utils/*"],
     }
   }
 }

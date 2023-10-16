@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react';
-import { isJsonString } from '@/app/utils/helpers';
 
 const useGetUsers = () => {
   const [users, setUsers] = useState();
@@ -9,11 +8,7 @@ const useGetUsers = () => {
       `https://randomuser.me/api/?results=${quantity}`
     );
     const result = await response.json();
-    if (isJsonString(result)) {
-      setUsers(result);
-    } else {
-      setUsers(undefined);
-    }
+    setUsers(result?.results);
   }, []);
 
   return { users, getUsers };
