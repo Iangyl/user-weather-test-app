@@ -7,6 +7,7 @@
       "@/app/redux/*": ["./app/redux/*"],
       "@/app/assets/*": ["./app/assets/*"],
       "@/app/styles/*": ["./app/styles/*"],
+      "@/app/utils/*": ["./app/utils/*"],
     }
   }
 }
