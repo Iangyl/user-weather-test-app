@@ -1,0 +1,42 @@
+@mixin flex-yCenter-xCenter()
+  display: flex
+  align-items: center
+  justify-content: center
+
+@mixin flex-yCenter-xBetween()
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+@mixin flex-xBetween()
+  display: flex
+  justify-content: space-between
+
+@mixin flex-yCenter()
+  display: flex
+  align-items: center
+
+@mixin flex-xCenter()
+  display: flex
+  justify-content: center
+
+@mixin flex-yCenter-gap($gap)
+  display: flex
+  align-items: center
+  gap: $gap
+
+@mixin flex-yCenter-xCenter-gap($gap)
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: $gap
+
+@mixin font-set-up($family, $size, $weight, $col)
+  font-family: $family
+  font-size: $size
+  font-weight: $weight
+  color: $col
+
+@mixin mx-width($mx-width)
+  max-width: $mx-width
+  width: 100%

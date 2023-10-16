@@ -1,0 +1,34 @@
+@import '@/app/styles/mixins.sass'
+@import '@/app/styles/functions.sass'
+
+.main
+  background-color: #1e63a8
+  .gradient
+    position: absolute
+    width: 100%
+    height: 100%
+    padding: 15px
+    box-sizing: border-box
+    background: linear-gradient(135deg, rgb(2, 0, 36) 0%, rgba(0,212,255,1) 100%)
+    background: linear-gradient(135deg, rgb(2, 0, 36) 0%, rgba(0,212,255,1) 100%)
+    background: linear-gradient(135deg, rgb(2, 0, 36) 0%, rgba(0,212,255,1) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#020024', endColorstr = '#00ffffff', GradientType = 1)
+  .greetings
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    .start
+      margin-top: 40px !important
+      @include flex-yCenter-gap(7px)
+      margin: 0 auto
+      @include font-set-up(var(--font-mono), toRem(18), 600, var(--start-btn-col))
+      background-color: var(--start-btn-bg)
+      border-radius: var(--border-radius)
+      padding: 10px 20px
+      .progress
+        width: 18px !important
+        height: 18px !important
+      .ready
+        width: 19px
+        height: 19px

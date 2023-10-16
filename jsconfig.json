@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/src/*": ["./*"]
+      "@/app/pages/*": ["./app/pages/*"],
+      "@/app/components/*": ["./app/components/*"],
+      "@/app/hooks/*": ["./app/hooks/*"],
+      "@/app/redux/*": ["./app/redux/*"],
+      "@/app/assets/*": ["./app/assets/*"],
+      "@/app/styles/*": ["./app/styles/*"],
     }
   }
 }

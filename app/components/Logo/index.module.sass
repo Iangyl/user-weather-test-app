@@ -1,0 +1,57 @@
+@import '@/app/styles/mixins'
+@import '@/app/styles/functions'
+
+.static
+  --dsp-logo: flex
+  --font-col: var(--font-static-col)
+  --font-align: left
+  --font-size: 1.5rem
+  --logo-w: 60px
+  --logo-h: 40px
+
+/* Load mode */
+
+.logoLoad
+  .logoIconLoad
+  .logoSignLoad
+    @include font-set-up(var(--font-mono), toRem(90), 700, var(--font-load-col))
+    text-transform: capitalize
+    text-align: center
+
+@media screen and (min-width: 360px)
+  .logoLoad
+    .logoIconLoad
+      display: block
+      margin: 0 auto
+      width: 320px
+      height: 210px
+    .logoSignLoad
+      font-size: toRem(42)
+@media screen and (min-width: 670px)
+  .logoLoad
+    .logoIconLoad
+      display: block
+      margin: 0 auto
+      width: 420px
+      height: 310px
+    .logoSignLoad
+      font-size: toRem(52)
+@media screen and (min-width: 1024px)
+  .logoLoad
+    .logoIconLoad
+      display: block
+      margin: 0 auto
+      width: auto
+      height: auto
+    .logoSignLoad
+      font-size: toRem(90)
+
+/* Static mode */
+
+.logoStatic
+  .logoIconStatic
+    width: 60px
+    height: 40px
+  .logoSignStatic
+    @include font-set-up(var(--font-mono), toRem(24), 700, var(--font-static-col))
+    text-transform: capitalize

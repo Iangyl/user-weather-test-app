@@ -1,0 +1,117 @@
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  margin-top: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* Forms */
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  font-size: 1em;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+/* Accessibility */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reset font sizes */
+html {
+  font-size: 16px;
+}
+
+/* Base font size */
+body {
+  font-size: 1rem;
+}
+
+/* Font sizes */
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 0.875rem;
+}
+
+h6 {
+  font-size: 0.75rem;
+}
+
+/* Line heights */
+p {
+  line-height: 1.5rem;
+}
+
+/* Margins and padding */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Links */
+a:hover {
+  color: #000;
+}
+
+/* Images */
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figure {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
