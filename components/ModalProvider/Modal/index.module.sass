@@ -1,0 +1,32 @@
+@import '@/styles/mixins'
+@import '@/styles/functions'
+
+.modal 
+  position: relative
+  @include mx-width(700px)
+  background-color: #FFFFFF
+  border-radius: var(--border-radius)
+  
+
+  button 
+    position: absolute
+    top: 10px
+    right: 10px
+    width: 30px
+    height: 30px
+    background-color: transparent
+    border: none
+    cursor: pointer
+    z-index: 2
+    &::after, &::before
+      content: ''
+      position: absolute
+      width: 2px
+      height: 20px
+      background-color: #000000
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%) rotate(45deg)
+    &::after
+      transform: translate(-50%, -50%) rotate(-45deg)
+

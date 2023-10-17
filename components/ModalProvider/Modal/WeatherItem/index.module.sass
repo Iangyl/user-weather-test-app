@@ -1,0 +1,16 @@
+@import '@/styles/mixins'
+@import '@/styles/functions'
+
+.weatherItem
+  @include flex-yCenter-xBetween
+  width: 100%
+  padding: 9px 50px
+  .figuresContainer
+    @include flex-yCenter-gap(20px)
+    .figure
+      figcaption
+        @include font-set-up(var(--font-primary), toRem(16), 500, #000)
+  .dayName
+    @include font-set-up(var(--font-primary), toRem(22), 600, #000)
+  &:not(:last-of-type)
+    border-bottom: 1px solid #cfcfcf

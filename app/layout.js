@@ -1,6 +1,7 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import ClientProvider from '@/redux/provider';
+import ModalProvider from '@/components/ModalProvider/ModalProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,8 +13,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true} className={inter.className}>
-        <ClientProvider>{children}</ClientProvider>
+      <body
+        id="root"
+        suppressHydrationWarning={true}
+        className={inter.className}
+      >
+        <ClientProvider>
+          <ModalProvider>{children}</ModalProvider>
+        </ClientProvider>
       </body>
     </html>
   );

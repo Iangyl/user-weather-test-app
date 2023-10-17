@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 import useGetWeather from '@/hooks/useGetWeather';
 import { addUser } from '@/redux/slices/usersSlice';
 import useGetWeatherIcon from '@/hooks/useGetWeatherIcon';
-import { findTodayDateIndex } from '@/utils/helpers';
+import { useModal } from '@/components/ModalProvider/ModalProvider';
+// import { findTodayDateIndex } from '@/utils/helpers';
 
 import Image from 'next/image';
 import Paper from '@mui/material/Paper';
@@ -13,6 +14,7 @@ import Button from '@mui/material/Button';
 import styles from './index.module.sass';
 
 const Item = ({ name: userName, location, gender, email, picture, login }) => {
+  const { openModal } = useModal()
   const dispatch = useDispatch();
   const { first, last } = userName;
   const {
@@ -28,9 +30,6 @@ const Item = ({ name: userName, location, gender, email, picture, login }) => {
   const dayIdx = 0 // findTodayDateIndex(weather?.daily?.time); - i forgot about time zones
   const weatherIcon = useGetWeatherIcon(weather?.daily?.weathercode[dayIdx]);
 
-  console.log('Weather:', weather);
-  console.log('Weather icon:', weatherIcon);
-
   const handleSaveButtonClick = useCallback(() => {
     const user = {
       name: userName,
@@ -42,6 +41,10 @@ const Item = ({ name: userName, location, gender, email, picture, login }) => {
     };
     dispatch(addUser(user));
   }, []);
+
+  const handleWeatherButtonClick = useCallback(() => {
+    openModal(weather?.daily)
+  }, [weather])
 
   return (
     <Paper className={styles.paper} elevation={3}>
@@ -77,7 +80,7 @@ const Item = ({ name: userName, location, gender, email, picture, login }) => {
             width={64}
             height={64}
             src={weatherIcon?.day?.image}
-            alt={weatherIcon?.day?.descriptions}
+            alt={weatherIcon?.day?.description}
           />
           <figcaption>{weather?.daily?.temperature_2m_max[dayIdx]} °C</figcaption>
         </figure>
@@ -86,7 +89,7 @@ const Item = ({ name: userName, location, gender, email, picture, login }) => {
             width={64}
             height={64}
             src={weatherIcon?.night?.image}
-            alt={weatherIcon?.night?.descriptions}
+            alt={weatherIcon?.night?.description}
           />
           <figcaption>{weather?.daily?.temperature_2m_min[dayIdx]} °C</figcaption>
         </figure>
@@ -95,7 +98,7 @@ const Item = ({ name: userName, location, gender, email, picture, login }) => {
         <Button variant="contained" onClick={handleSaveButtonClick}>
           Save
         </Button>
-        <Button variant="outlined" onClick={''}>Weather</Button>
+        <Button variant="outlined" onClick={handleWeatherButtonClick}>Weather</Button>
       </div>
     </Paper>
   );
