@@ -8,6 +8,22 @@
   align-items: center
   justify-content: space-between
 
+@mixin flex-yCenter-xEvenly()
+  display: flex
+  align-items: center
+  justify-content: space-evenly
+
+@mixin flex-yCenter-xAround()
+  display: flex
+  align-items: center
+  justify-content: space-around
+
+@mixin flex-yCenter-xEnd-gap($gap)
+  display: flex
+  align-items: center
+  justify-content: end
+  gap: $gap
+
 @mixin flex-xBetween()
   display: flex
   justify-content: space-between
@@ -19,6 +35,10 @@
 @mixin flex-xCenter()
   display: flex
   justify-content: center
+
+@mixin flex-gap($gap)
+  display: flex
+  gap: $gap
 
 @mixin flex-yCenter-gap($gap)
   display: flex

@@ -1,3 +1,11 @@
+'use client';
+import DataGrid from '@/components/DataGrid';
+import PageWrapper from '@/components/PageWrapper';
+
 export default function Dashboard() {
-  return (<>Hello world!</>)
+  return (
+    <PageWrapper>
+      <DataGrid />
+    </PageWrapper>
+  );
 }

@@ -1,0 +1,77 @@
+@import '../../../styles/mixins.sass'
+@import '../../../styles/functions.sass'
+
+// need rewrite some rules but later
+
+.header 
+  width: 100%
+  background-color: var(--col-1) 
+  margin-bottom: 75px
+  .navContainer 
+    @include flex-yCenter-xBetween
+    @include mx-width(var(--max-width))
+    margin: 0 auto
+    nav
+      @include mx-width(640px)
+      @include flex-yCenter-gap(60px)
+      .navbar
+        @include mx-width(523px)
+        @include flex-yCenter-gap(37px)
+        margin: 0
+        li
+          @include flex-yCenter
+          @include mx-width(64px)
+          a
+            @include font-set-up(var(--header-font), 1rem, 400, #fff)
+            text-transform: capitalize
+            transition: font-weight 0.2s
+            &:hover
+              font-weight: 600
+              box-shadow: 0 0 0 1px transparent
+              cursor: pointer
+    div
+      @include flex-yCenter-xBetween
+    .burgerBtn
+      display: var(--burger-dsp)
+      background-color: transparent
+      border: none
+      width: 42px
+      &:hover
+        cursor: pointer
+
+@media screen and (min-width: 360px)
+  .header
+    padding-top: 19px
+    position: var(--header-pos)
+    height: var(--header-height)
+    background-color: var(--back-header-col)
+    z-index: 1000
+    .navContainer
+      flex-direction: var(--nav-direct)
+      gap: 50px
+      nav
+        background-color: var(--back-nav-col)
+        display: var(--nav-dsp)
+        flex-direction: var(--nav-direct)
+        .navbar
+          flex-direction: var(--nav-direct)
+          li
+            max-width: none
+            width: 100%
+            a
+              color: var(--links-col)
+      div
+        width: 100%
+@media screen and (min-width: 768px)
+@media screen and (min-width: 1024px)
+  .header
+    background-color: var(--col-1)
+    .navContainer
+      gap: 0
+      nav
+        display: flex
+        gap: 30px
+        .navbar
+          gap: 20px
+          div
+            justify-content: start

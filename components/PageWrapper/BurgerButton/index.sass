@@ -1,0 +1,44 @@
+@import '../../../styles/mixins.sass'
+
+.burgerButton
+  @include mx-width(24px)
+  #operator
+    display: none
+    &:checked + .hamburger
+      .top-bun, .meat, .bottom-bun
+        background-color: var(--col-9)
+        transform: rotate(-45deg)
+      .top-bun
+        margin-top: 25px
+        opacity: 0
+      .meat
+        margin-top: -10px
+      .bottom-bun
+        width: 2rem
+        margin-top: -3px
+        transform: rotate(45deg)
+  .hamburger
+    width: 2rem
+    height: 35px
+    .top-bun,
+    .meat,
+    .bottom-bun
+      position: relative
+      width: 2rem
+      height: 3px
+      border-radius: 3px
+      background-color: var(--col-2)
+      margin-top: 6px
+      transition: all 0.3s ease-in-out
+    .bottom-bun
+      width: 1rem
+      margin-left: auto
+
+@media screen and (min-width:360px)
+  .burgerButton
+    .hamburger
+      display: block
+@media screen and (min-width:1024px)
+  .burgerButton
+    .hamburger
+      display: none

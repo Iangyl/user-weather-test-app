@@ -1,0 +1,40 @@
+@import '@/styles/mixins'
+@import '@/styles/functions'
+
+.paper
+  padding: 20px 15px 15px 15px
+  .avatar
+    img
+      display: block
+      margin: 0 auto
+      border-radius: 50%
+  .name
+    @include font-set-up(var(--font-primary), toRem(24), 600, #000)
+    text-align: center
+    margin: 10px 0
+  .gender
+    @include font-set-up(var(--font-primary), toRem(18), 500, #000)
+    text-align: center
+    margin-bottom: 20px
+  .details
+    .detail
+      @include flex-gap(7px)
+      @include font-set-up(var(--font-primary), toRem(14), 400, #000)
+      span
+        &:first-of-type
+          font-weight: 500
+          font-style: normal
+        &:last-of-type
+          color: #a4a4a4
+  .weatherTitle
+    @include font-set-up(var(--font-primary), toRem(20), 500, #000)
+    margin: 10px 0
+  .weatherDetails
+    margin-bottom: 20px
+    @include flex-yCenter-xEvenly
+    figure
+      figcaption
+        margin-top: 5px
+  .buttonContainer
+    @include flex-yCenter-xEnd-gap(7px)
+
