@@ -22,4 +22,4 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 ## Deploy
 
-The link to deployed app will appear here, when It will be deployed.
+The link to deployed app: https://user-weather-test-app.vercel.app/
