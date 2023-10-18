@@ -1,20 +1,26 @@
 'use client';
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   users: [],
-}
+};
 
 export const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
     addUser: (state, action) => {
-      state.users.push(action.payload)
+      const { email } = action.payload;
+
+      const isDuplicate = state.users.some((user) => user.email === email);
+
+      if (!isDuplicate) {
+        state.users.push(action.payload);
+      }
     },
   },
-})
+});
 
-export const { addUser } = usersSlice.actions
+export const { addUser } = usersSlice.actions;
 
-export default usersSlice.reducer
+export default usersSlice.reducer;

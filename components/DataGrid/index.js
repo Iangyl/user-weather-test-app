@@ -23,16 +23,24 @@ const DataGrid = () => {
   const savedUsers = useSelector(selectUsersByQuantity(usersAmount));
   const savedUsersGeneralQuantity = useSelector(selectUsersLength);
 
-  const mode = useMemo(() => 'all_users', []);
+  const mode = useMemo(() => params.get('mode'), [params]);
+  console.log('mode', mode)
 
-  const users = useMemo(
-    () => (params.get('mode') === 'saved_users' ? savedUsers : allUsers),
-    [params?.length, allUsers, savedUsers]
-  );
+  const users = useMemo(() => {
+    if (mode === 'saved_users') {
+      return savedUsers;
+    } else {
+      return allUsers;
+    }
+  }, [mode, allUsers, savedUsers]);
 
   useEffect(() => {
     if (mode !== 'saved_users') getUsers(usersAmount);
   }, [usersAmount]);
+
+  useEffect(() => {
+    setUsersAmount(step);
+  }, [mode]);
 
   const handleButtonClick = useCallback(() => {
     setUsersAmount(usersAmount + step);
