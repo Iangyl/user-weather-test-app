@@ -7,7 +7,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 });
 
 const CustomizedSnackbar = ({ isOpen, onClose }) => (
-  <Snackbar open={isOpen} autoHideDuration={6000} onClose={onClose}>
+  <Snackbar open={isOpen} autoHideDuration={3000} onClose={onClose}>
     <Alert onClose={onClose} severity="success" sx={{ width: '100%' }}>
       The user was successfully saved!
     </Alert>

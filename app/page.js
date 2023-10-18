@@ -25,7 +25,6 @@ export default function Home() {
         <Button
           onClick={handleClick}
           className={styles.start}
-          disabled={isLoaded ? false : true}
         >
           Get Started
           <Image className={styles.ready} src={arrowIcon} alt="pic" />

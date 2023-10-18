@@ -11,7 +11,7 @@ const ModalContainer = ({
   isSnackbarOpen,
   onClose,
   onCloseSnackbar,
-  content
+  content,
 }) => {
   const ref = useRef(null);
   const [mounted, setMounted] = useState(false);
@@ -23,14 +23,21 @@ const ModalContainer = ({
 
   return mounted && ref.current
     ? createPortal(
-        <div
-          className={`${styles.container} ${
-            isOpen || isSnackbarOpen ? styles.open : styles.close
-          }`}
-        >
-          {isOpen && <Modal content={content} onClose={onClose} />}
-          {isSnackbarOpen && <CustomizedSnackbar isOpen={isSnackbarOpen} onClose={onCloseSnackbar} />}
-        </div>,
+        <>
+          <div
+            className={`${styles.container} ${
+              isOpen ? styles.open : styles.close
+            } ${isSnackbarOpen ? styles.snackOpen : styles.snackClose}`}
+          >
+            {isOpen && <Modal content={content} onClose={onClose} />}
+          </div>
+          {isSnackbarOpen && (
+            <CustomizedSnackbar
+              isOpen={isSnackbarOpen}
+              onClose={onCloseSnackbar}
+            />
+          )}
+        </>,
         document.body
       )
     : null;
