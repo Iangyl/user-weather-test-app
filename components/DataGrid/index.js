@@ -36,7 +36,7 @@ const DataGrid = () => {
 
   useEffect(() => {
     if (mode !== 'saved_users') getUsers(usersAmount);
-  }, [usersAmount]);
+  }, [mode, usersAmount]);
 
   useEffect(() => {
     setUsersAmount(step);
