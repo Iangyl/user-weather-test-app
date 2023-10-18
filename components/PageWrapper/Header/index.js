@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { links } from './index.config';
 
@@ -16,28 +16,24 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const status = useMemo(() => isMenuOpen ? 'opened' : 'closed', [isMenuOpen])
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${styles[status]}`}>
       <div className={styles.navContainer}>
         <div>
-          <Logo mode='static' />
+          <Logo mode="static" />
           <BurgerButton checked={isMenuOpen} onClick={toggleMenu} />
         </div>
-        <nav>
-          <ul
-            className={`${styles.navbar} ${
-              isMenuOpen ? styles.openMenu : ''
-            }`}
-          >
-            {links.map((item, idx) => (
-              <li key={idx} className={styles.navbarItem}>
-                <Link className={styles.navbarItemLink} href={item.link}>
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <ul className={`${styles.navbar} ${isMenuOpen ? styles.openMenu : ''}`}>
+          {links.map((item, idx) => (
+            <li key={idx} className={styles.navbarItem}>
+              <Link className={styles.navbarItemLink} href={item.link}>
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </header>
   );

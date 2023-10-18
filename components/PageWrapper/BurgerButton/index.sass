@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.sass'
+@import '@/styles/mixins.sass'
 
 .burgerButton
   @include mx-width(24px)
@@ -6,7 +6,7 @@
     display: none
     &:checked + .hamburger
       .top-bun, .meat, .bottom-bun
-        background-color: var(--col-9)
+        background-color: #fff
         transform: rotate(-45deg)
       .top-bun
         margin-top: 25px
@@ -27,7 +27,7 @@
       width: 2rem
       height: 3px
       border-radius: 3px
-      background-color: var(--col-2)
+      background-color: #000
       margin-top: 6px
       transition: all 0.3s ease-in-out
     .bottom-bun

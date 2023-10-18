@@ -4,3 +4,20 @@
 .pageContent
   @include mx-width(var(--max-width))
   margin: 0 auto
+
+@media screen and (min-width: 360px)
+  .pageContent
+    max-width: 320px
+    padding-top: 100px
+@media screen and (min-width: 768px)
+  .pageContent
+    max-width: 710px
+    padding-top: 100px
+@media screen and (min-width: 1024px)
+  .pageContent
+    max-width: 940px
+    padding-top: 100px
+@media screen and (min-width: 1440px)
+  .pageContent
+    max-width: var(--max-width)
+    padding-top: 100px

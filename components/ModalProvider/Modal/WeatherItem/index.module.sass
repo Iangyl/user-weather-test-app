@@ -14,3 +14,14 @@
     @include font-set-up(var(--font-primary), toRem(22), 600, #000)
   &:not(:last-of-type)
     border-bottom: 1px solid #cfcfcf
+
+@media screen and (min-width: 360px)
+  .weatherItem
+    padding: 9px 40px 9px 25px
+    .figuresContainer
+      gap: 15px
+@media screen and (min-width: 768px)
+  .weatherItem
+    padding: 9px 50px
+    .figuresContainer
+      gap: 20px

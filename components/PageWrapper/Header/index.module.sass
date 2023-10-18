@@ -2,76 +2,92 @@
 @import '../../../styles/functions.sass'
 
 // need rewrite some rules but later
+.opened
+  --header-h: 100vh
+  --header-col: #000
+  --nav-container-content-direct: column
+  --links-direct: column
+  --links-col: #fff
+  --navbar-dsp: flex
+.closed
+  --header-h: auto
+  --header-col: #fff
+  --nav-container-content-direct: row
+  --links-direct: row
+  --links-col: #000
+  --navbar-dsp: none
+
 
 .header 
   width: 100%
-  background-color: var(--col-1) 
+  background-color: var(--header-col)
   margin-bottom: 75px
   .navContainer 
     @include flex-yCenter-xBetween
     @include mx-width(var(--max-width))
     margin: 0 auto
-    nav
-      @include mx-width(640px)
-      @include flex-yCenter-gap(60px)
-      .navbar
-        @include mx-width(523px)
-        @include flex-yCenter-gap(37px)
-        margin: 0
-        li
-          @include flex-yCenter
-          @include mx-width(64px)
-          a
-            @include font-set-up(var(--header-font), 1rem, 400, #fff)
-            text-transform: capitalize
-            transition: font-weight 0.2s
-            &:hover
-              font-weight: 600
-              box-shadow: 0 0 0 1px transparent
-              cursor: pointer
+    .navbar
+      @include mx-width(523px)
+      @include flex-yCenter-gap(37px)
+      margin: 0
+      li
+        @include flex-yCenter
+        @include mx-width(64px)
+        a
+          @include font-set-up(var(--font-primary), 1rem, 400, #fff)
+          text-transform: capitalize
+          transition: font-weight 0.2s
+          &:hover
+            font-weight: 600
+            box-shadow: 0 0 0 1px transparent
+            cursor: pointer
     div
       @include flex-yCenter-xBetween
-    .burgerBtn
-      display: var(--burger-dsp)
-      background-color: transparent
-      border: none
-      width: 42px
-      &:hover
-        cursor: pointer
+      .burgerBtn
+        display: none
+        background-color: transparent
+        border: none
+        width: 42px
+        &:hover
+          cursor: pointer
 
 @media screen and (min-width: 360px)
   .header
     padding-top: 19px
-    position: var(--header-pos)
-    height: var(--header-height)
-    background-color: var(--back-header-col)
+    position: fixed
+    height: var(--header-h)
     z-index: 1000
     .navContainer
-      flex-direction: var(--nav-direct)
+      max-width: 320px
+      flex-direction: var(--nav-container-content-direct)
+      align-items: flex-start
       gap: 50px
-      nav
-        background-color: var(--back-nav-col)
-        display: var(--nav-dsp)
-        flex-direction: var(--nav-direct)
-        .navbar
-          flex-direction: var(--nav-direct)
-          li
-            max-width: none
-            width: 100%
-            a
-              color: var(--links-col)
+      .navbar
+        display: var(--navbar-dsp)
+        flex-direction: var(--links-direct)
+        li
+          max-width: none
+          width: 100%
+          a
+            color: var(--links-col)
       div
         width: 100%
 @media screen and (min-width: 768px)
+  .header
+    .navContainer
+      max-width: 710px
 @media screen and (min-width: 1024px)
   .header
-    background-color: var(--col-1)
     .navContainer
+      max-width: 940px
+      align-items: center
       gap: 0
-      nav
+      .navbar
         display: flex
-        gap: 30px
-        .navbar
-          gap: 20px
-          div
-            justify-content: start
+        gap: 20px
+        div
+          justify-content: start
+@media screen and (min-width: 1440px)
+  .header
+    .navContainer
+      max-width: var(--max-width)
