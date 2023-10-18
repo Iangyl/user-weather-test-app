@@ -1,12 +1,10 @@
 'use client';
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import useGetUsers from '@/hooks/useGetUsers';
 
 import Image from 'next/image';
 import Logo from '@/components/Logo';
 import Button from '@mui/material/Button';
-import CircularProgress from '@mui/material/CircularProgress';
 
 import arrowIcon from '@/assets/icons/arrow.svg';
 
@@ -14,13 +12,6 @@ import styles from './page.module.sass';
 
 export default function Home() {
   const navigation = useRouter();
-  const { users, getUsers } = useGetUsers();
-  const isLoaded = useMemo(() => users?.length > 0 ?? false, [users]);
-  console.log(users);
-
-  useEffect(() => {
-    getUsers();
-  }, []);
 
   const handleClick = useCallback(() => {
     navigation.push('/dashboard?mode=all_users');
@@ -37,11 +28,7 @@ export default function Home() {
           disabled={isLoaded ? false : true}
         >
           Get Started
-          {isLoaded ? (
-            <Image className={styles.ready} src={arrowIcon} alt="pic" />
-          ) : (
-            <CircularProgress className={styles.progress} />
-          )}
+          <Image className={styles.ready} src={arrowIcon} alt="pic" />
         </Button>
       </div>
     </main>
