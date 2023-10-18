@@ -15,7 +15,7 @@ import Skeleton from '@mui/material/Skeleton';
 import styles from './index.module.sass';
 
 const Item = ({ name: userName, location, gender, email, picture, login }) => {
-  const { openModal } = useModal();
+  const { openModal, openSnackbar } = useModal();
   const dispatch = useDispatch();
   const { first, last } = userName;
   const {
@@ -41,6 +41,7 @@ const Item = ({ name: userName, location, gender, email, picture, login }) => {
       picture,
     };
     dispatch(addUser(user));
+    openSnackbar();
   }, []);
 
   const handleWeatherButtonClick = useCallback(() => {

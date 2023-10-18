@@ -6,6 +6,7 @@ const ModalContext = createContext(null);
 
 const ModalProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
   const [content, setContent] = useState();
 
   const openModal = useCallback((content) => {
@@ -13,13 +14,27 @@ const ModalProvider = ({ children }) => {
     setContent(content);
   }, []);
 
+  const openSnackbar = useCallback(() => {
+    setIsSnackbarOpen(true);
+  }, []);
+
   const closeModal = useCallback(() => {
     setIsOpen(false);
   }, []);
 
+  const closeSnackbar = useCallback(() => {
+    setIsSnackbarOpen(false);
+  }, []);
+
   return (
-    <ModalContext.Provider value={{ openModal, closeModal }}>
-      <ModalContainer content={content} isOpen={isOpen} onClose={closeModal} />
+    <ModalContext.Provider value={{ openModal, closeModal, openSnackbar, closeSnackbar }}>
+      <ModalContainer
+        content={content}
+        isOpen={isOpen}
+        isSnackbarOpen={isSnackbarOpen}
+        onClose={closeModal}
+        onCloseSnackbar={closeSnackbar}
+      />
       {children}
     </ModalContext.Provider>
   );
