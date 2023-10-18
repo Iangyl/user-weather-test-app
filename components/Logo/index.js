@@ -15,13 +15,11 @@ const Logo = ({ mode }) => {
         : ['logoStatic', 'logoIconStatic', 'logoSignStatic'],
     [mode]
   );
-  
+
   return (
     <figure className={styles[logo]}>
-      <Image className={styles[logoIcon]} src={weatherIcon} alt="" />
-      <figcaption className={styles[logoSign]}>
-        {sign}
-      </figcaption>
+      <Image className={styles[logoIcon]} src={weatherIcon} alt="pic" />
+      <figcaption className={styles[logoSign]}>{sign}</figcaption>
     </figure>
   );
 };

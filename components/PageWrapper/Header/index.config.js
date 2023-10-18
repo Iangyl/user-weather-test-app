@@ -1,10 +1,10 @@
 export const links = [
   {
     name: 'all users',
-    link: '/all_users'
+    link: '/dashboard?mode=all_users'
   },
   {
     name: 'saved users',
-    link: '/saved_users'
+    link: '/dashboard?mode=saved_users'
   },
 ]

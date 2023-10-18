@@ -14,7 +14,7 @@ import Button from '@mui/material/Button';
 import styles from './index.module.sass';
 
 const Item = ({ name: userName, location, gender, email, picture, login }) => {
-  const { openModal } = useModal()
+  const { openModal } = useModal();
   const dispatch = useDispatch();
   const { first, last } = userName;
   const {
@@ -27,7 +27,7 @@ const Item = ({ name: userName, location, gender, email, picture, login }) => {
   const { medium } = picture;
   const { username } = login;
   const weather = useGetWeather(latitude, longitude);
-  const dayIdx = 0 // findTodayDateIndex(weather?.daily?.time); - i forgot about time zones
+  const dayIdx = 0; // findTodayDateIndex(weather?.daily?.time); - i forgot about time zones
   const weatherIcon = useGetWeatherIcon(weather?.daily?.weathercode[dayIdx]);
 
   const handleSaveButtonClick = useCallback(() => {
@@ -43,8 +43,8 @@ const Item = ({ name: userName, location, gender, email, picture, login }) => {
   }, []);
 
   const handleWeatherButtonClick = useCallback(() => {
-    openModal(weather?.daily)
-  }, [weather])
+    openModal(weather?.daily);
+  }, [weather]);
 
   return (
     <Paper className={styles.paper} elevation={3}>
@@ -54,7 +54,7 @@ const Item = ({ name: userName, location, gender, email, picture, login }) => {
           height={120}
           styles={{ borderRadius: '50%' }}
           src={medium}
-          alt=""
+          alt="pic"
         />
       </figure>
       <h2 className={styles.name}>{`${first} ${last}`}</h2>
@@ -82,7 +82,9 @@ const Item = ({ name: userName, location, gender, email, picture, login }) => {
             src={weatherIcon?.day?.image}
             alt={weatherIcon?.day?.description}
           />
-          <figcaption>{weather?.daily?.temperature_2m_max[dayIdx]} °C</figcaption>
+          <figcaption>
+            {weather?.daily?.temperature_2m_max[dayIdx]} °C
+          </figcaption>
         </figure>
         <figure>
           <Image
@@ -91,14 +93,18 @@ const Item = ({ name: userName, location, gender, email, picture, login }) => {
             src={weatherIcon?.night?.image}
             alt={weatherIcon?.night?.description}
           />
-          <figcaption>{weather?.daily?.temperature_2m_min[dayIdx]} °C</figcaption>
+          <figcaption>
+            {weather?.daily?.temperature_2m_min[dayIdx]} °C
+          </figcaption>
         </figure>
       </div>
       <div className={styles.buttonContainer}>
         <Button variant="contained" onClick={handleSaveButtonClick}>
           Save
         </Button>
-        <Button variant="outlined" onClick={handleWeatherButtonClick}>Weather</Button>
+        <Button variant="outlined" onClick={handleWeatherButtonClick}>
+          Weather
+        </Button>
       </div>
     </Paper>
   );

@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { links } from './index.config';
 
+import Link from 'next/link';
 import Logo from '@/components/Logo';
 import BurgerButton from '../BurgerButton';
 
@@ -30,9 +31,9 @@ const Header = () => {
           >
             {links.map((item, idx) => (
               <li key={idx} className={styles.navbarItem}>
-                <a className={styles.navbarItemLink} href={item.link}>
+                <Link className={styles.navbarItemLink} href={item.link}>
                   {item.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

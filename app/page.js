@@ -23,7 +23,7 @@ export default function Home() {
   }, []);
 
   const handleClick = useCallback(() => {
-    navigation.push('/dashboard');
+    navigation.push('/dashboard?mode=all_users');
   }, []);
 
   return (
@@ -31,10 +31,14 @@ export default function Home() {
       <div className={styles.gradient}></div>
       <div className={styles.greetings}>
         <Logo mode="load" />
-        <Button onClick={handleClick} className={styles.start} disabled={isLoaded ? false : true}>
+        <Button
+          onClick={handleClick}
+          className={styles.start}
+          disabled={isLoaded ? false : true}
+        >
           Get Started
           {isLoaded ? (
-            <Image className={styles.ready} src={arrowIcon} alt="" />
+            <Image className={styles.ready} src={arrowIcon} alt="pic" />
           ) : (
             <CircularProgress className={styles.progress} />
           )}
