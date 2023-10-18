@@ -1,5 +1,5 @@
 'use client';
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import useGetWeather from '@/hooks/useGetWeather';
 import { addUser } from '@/redux/slices/usersSlice';
@@ -14,7 +14,16 @@ import Skeleton from '@mui/material/Skeleton';
 
 import styles from './index.module.sass';
 
-const Item = ({ name: userName, location, gender, email, picture, login }) => {
+const Item = ({
+  mode,
+  name: userName,
+  location,
+  gender,
+  email,
+  picture,
+  login,
+}) => {
+  const ref = useRef(null);
   const { openModal, openSnackbar } = useModal();
   const dispatch = useDispatch();
   const { first, last } = userName;
@@ -32,6 +41,7 @@ const Item = ({ name: userName, location, gender, email, picture, login }) => {
   const weatherIcon = useGetWeatherIcon(weather?.daily?.weathercode[dayIdx]);
 
   const handleSaveButtonClick = useCallback(() => {
+    ref.current.style.display = 'none'
     const user = {
       name: userName,
       login,
@@ -110,9 +120,11 @@ const Item = ({ name: userName, location, gender, email, picture, login }) => {
         )}
       </div>
       <div className={styles.buttonContainer}>
-        <Button variant="contained" onClick={handleSaveButtonClick}>
-          Save
-        </Button>
+        {mode !== 'saved_users' && (
+          <Button ref={ref} variant="contained" onClick={handleSaveButtonClick}>
+            Save
+          </Button>
+        )}
         <Button variant="outlined" onClick={handleWeatherButtonClick}>
           Weather
         </Button>

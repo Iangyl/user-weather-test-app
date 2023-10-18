@@ -60,7 +60,7 @@ const DataGrid = () => {
         {users
           ? users.map((item, idx) => (
               <Grid key={idx} item xs={12} md={4}>
-                <Item {...item} />
+                <Item mode={mode} {...item} />
               </Grid>
             ))
           : [...Array(21)].map((item, idx) => (
