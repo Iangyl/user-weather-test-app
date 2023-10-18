@@ -1,4 +1,3 @@
-'use client';
 import { useMemo } from 'react';
 import Image from 'next/image';
 import weatherIcon from '@/assets/icons/weather-logo.svg';

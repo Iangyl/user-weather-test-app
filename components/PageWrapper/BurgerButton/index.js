@@ -1,4 +1,3 @@
-'use client';
 import './index.sass'
 
 const BurgerButton = ({checked, onClick}) => (

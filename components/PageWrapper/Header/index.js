@@ -1,4 +1,3 @@
-'use client';
 import { useCallback, useMemo, useState } from 'react';
 import useScreenSize from '@/hooks/useScreenSize';
 

@@ -10,6 +10,7 @@ import { useModal } from '@/components/ModalProvider/ModalProvider';
 import Image from 'next/image';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import Skeleton from '@mui/material/Skeleton';
 
 import styles from './index.module.sass';
 
@@ -75,28 +76,37 @@ const Item = ({ name: userName, location, gender, email, picture, login }) => {
       </address>
       <h3 className={styles.weatherTitle}>Weather</h3>
       <div className={styles.weatherDetails}>
-        <figure>
-          <Image
-            width={64}
-            height={64}
-            src={weatherIcon?.day?.image}
-            alt={weatherIcon?.day?.description}
-          />
-          <figcaption>
-            {weather?.daily?.temperature_2m_max[dayIdx]} °C
-          </figcaption>
-        </figure>
-        <figure>
-          <Image
-            width={64}
-            height={64}
-            src={weatherIcon?.night?.image}
-            alt={weatherIcon?.night?.description}
-          />
-          <figcaption>
-            {weather?.daily?.temperature_2m_min[dayIdx]} °C
-          </figcaption>
-        </figure>
+        {weatherIcon ? (
+          <>
+            <figure>
+              <Image
+                width={64}
+                height={64}
+                src={weatherIcon?.day?.image}
+                alt={weatherIcon?.day?.description}
+              />
+              <figcaption>
+                {weather?.daily?.temperature_2m_max[dayIdx]} °C
+              </figcaption>
+            </figure>
+            <figure>
+              <Image
+                width={64}
+                height={64}
+                src={weatherIcon?.night?.image}
+                alt={weatherIcon?.night?.description}
+              />
+              <figcaption>
+                {weather?.daily?.temperature_2m_min[dayIdx]} °C
+              </figcaption>
+            </figure>
+          </>
+        ) : (
+          <>
+            <Skeleton variant="rectangular" width={84} height={84} />
+            <Skeleton variant="rectangular" width={84} height={84} />
+          </>
+        )}
       </div>
       <div className={styles.buttonContainer}>
         <Button variant="contained" onClick={handleSaveButtonClick}>
